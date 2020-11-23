@@ -1,25 +1,47 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
+import {Operations} from '../../redusers/reducer';
 
+const Login = (props) => {
+  const {onSubmit, logout, isUserError} = props;
+  const [name, setName] = useState('admin');
+  const [password, setPassword] = useState('admin');
 
-const Login = () => {
-
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = () => {
-    // onSubmit({password ,Login})
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    if (password && name) {
+      onSubmit({password, name});
+      setName('');
+      setPassword('');
+    }
   };
 
   return (
-    <form>
-      <label>
-        <input type="text" onChange={(evt) => setLogin(evt.target.value)} value={login}/>
-      </label>
-      <label>
-        <input type="text" onChange={(evt) => setPassword(evt.target.value)} value={password}/>
-      </label>
-    </form>
-  )
+    <React.Fragment>
+      <button onClick={logout}>logout</button>
+      <form onSubmit={handleSubmit}>
+        {isUserError && <p>Такого пользователя не существует!</p>}
+        <label>
+          <input type="text" onChange={(evt) => setName(evt.target.value)} value={name} />
+        </label>
+        <label>
+          <input type="text" onChange={(evt) => setPassword(evt.target.value)} value={password} />
+        </label>
+        <button>Submit</button>
+      </form>
+    </React.Fragment>
+  );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({
+  isUserError: state.isUserError,
+});
+const mapDispatchToProps = (dispatch) => ({
+  onSubmit: (user) => {
+    dispatch(Operations.setUser(user));
+  },
+  logout: () => {
+    dispatch(Operations.logout());
+  },
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
