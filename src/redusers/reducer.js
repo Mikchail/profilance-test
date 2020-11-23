@@ -6,22 +6,22 @@ const initialState = {
   news: [
     {
       id: '12',
-      title: 'New Title 1',
-      description: 'This is about muffin 1',
+      title: 'Simple news 1',
+      description: 'This is about muffin',
       date: 1606125923036,
       approved: true,
     },
     {
       id: '122',
-      title: 'New Title 2',
-      description: 'This is about muffin 2',
+      title: 'Hard news 2',
+      description: 'This is about hard',
       date: 1602225963036,
       approved: true,
     },
     {
       id: '1332',
       title: 'New Title 3',
-      description: 'This is about muffin 3',
+      description: 'This is about sport',
       date: 1606425963036,
       approved: true,
     },

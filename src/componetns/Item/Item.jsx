@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {getDateTimeString} from '../../utils';
 const Item = (props) => {
   const {item,isAdmin,deleteNews,setApproved} = props;
-  const date = new Date(item.date);
-  const exactlyTime = date.getDay() + ' ' + date.getFullYear();
+  const exactlyTime = getDateTimeString(item.date);
   return (
     <li className="item">
       {(!item.approved && isAdmin) && <button onClick={()=>setApproved(item.id)}>Approved</button>}

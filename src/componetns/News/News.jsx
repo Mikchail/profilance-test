@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Item from '../Item/Item';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../redusers/reducer';
-import {getApprovedNews, getNotApprovedNews} from '../../redusers/selectors';
+import {getApprovedNews, getFilterApprovedNews, getNotApprovedNews} from '../../redusers/selectors';
 import FormSort from '../Forms/FormSort';
 
 const News = (props) => {
@@ -47,7 +47,7 @@ News.propTypes = {
 
 const mapStateToProps = (state) => ({
   isAdmin: state.isAdmin,
-  approvedNews: getApprovedNews(state),
+  approvedNews: getFilterApprovedNews(state),
   notApprovedNews: getNotApprovedNews(state),
 });
 
