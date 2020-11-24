@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {ActionCreator, Operations} from '../../../reduser/reducer';
+import {ActionCreator, Operations} from '../../../reducer/reducer';
 
 import './formLogin.scss'
 

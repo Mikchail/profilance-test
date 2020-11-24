@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {ActionCreator} from '../../reduser/reducer';
+import {ActionCreator} from '../../reducer/reducer';
 import FormAddNews from '../Forms/FormAddNews/FormAddNews';
 
 import './main.scss'

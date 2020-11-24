@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {ActionCreator} from '../../reduser/reducer';
-import { getFilterApprovedNews, getNotApprovedNews} from '../../reduser/selectors';
+import {ActionCreator} from '../../reducer/reducer';
+import { getFilterApprovedNews, getNotApprovedNews} from '../../reducer/selectors';
 
 import FormFilter from '../Forms/FormFilter/FormFilter';
 import Item from '../Item/Item';
@@ -39,7 +39,7 @@ const News = (props) => {
 
       <FormFilter/>
 
-      <ul className="list">
+      <ul className="list list-approved">
         {approvedNews &&
         approvedNews.map((item) => {
           return <Item key={item.id} item={item} isAdmin={isAdmin} deleteNews={deleteNews}/>;

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {ActionCreator} from '../../../reduser/reducer';
+import {ActionCreator} from '../../../reducer/reducer';
 
 import './formFilter.scss'
 

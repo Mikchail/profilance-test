@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {Operations} from "../../reduser/reducer";
+import {Operations} from "../../reducer/reducer";
 
 import FormLogin from "../Forms/FormLogin/FormLogin";
 import Modal from "../Modal/Modal";
