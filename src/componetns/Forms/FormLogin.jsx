@@ -16,6 +16,7 @@ const FormLogin = (props) => {
       onSubmit({password, name});
       setName('');
       setPassword('');
+
     } else {
       setError(true)
     }

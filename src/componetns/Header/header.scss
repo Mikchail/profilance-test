@@ -25,10 +25,13 @@
   &__item-btn{
     margin-left: auto;
     cursor: pointer;
-    a {
+    button {
       padding: 5px 20px;
       color: #25292F;
       background-color: #f9f4f4;
+      font-size: 18px;
+      line-height: 24px;
+      cursor: pointer;
       transition: background-color 0.4s,color 0.4s;
       &:hover{
         color:  #f9f4f4;

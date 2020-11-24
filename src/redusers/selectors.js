@@ -16,6 +16,7 @@ export const getFilterApprovedNews = (state) => {
     ) {
       return it;
     } else {
+      return null
     }
   });
 };

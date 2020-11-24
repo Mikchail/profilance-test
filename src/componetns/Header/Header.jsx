@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {Operations} from "../../redusers/reducer";
@@ -7,8 +7,18 @@ import Modal from "../Modal/Modal";
 import './header.scss'
 
 const Header = (props) => {
-  const {user,logout} = props;
-  const [isOpen, setIsOpen] = useState(false)
+  const {user, logout} = props;
+  const [isOpen, setIsOpen] = useState(false);
+  useEffect(()=>{
+    if(user){
+      setIsOpen(false)
+    }
+  },[user])
+  const handleClick = () => {
+    setIsOpen(true)
+  };
+
+  const button = user ? <button onClick={logout}>Logout</button> : <button onClick={handleClick}>Login</button>
   return (
     <header className='header'>
       <div className="container">
@@ -17,8 +27,7 @@ const Header = (props) => {
             <li className='menu__item'><NavLink to='/' exact>Main Page</NavLink></li>
             <li className='menu__item'><NavLink to='/news'>News Page</NavLink></li>
             <li className='menu__item menu__item-btn'>
-              {!user && <a onClick={() => setIsOpen(prev=>!prev)}>Login</a>}
-              {user && <a onClick={logout}>Logout</a>}
+              {button}
             </li>
           </ul>
         </nav>
@@ -39,4 +48,4 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(Operations.logout());
   },
 });
-export default connect(mapStateToProps,mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

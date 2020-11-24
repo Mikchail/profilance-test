@@ -1,5 +1,5 @@
 import {news} from '../news'
-console.log(news)
+
 const initialState = {
   isAdmin: false,
   user: false,
