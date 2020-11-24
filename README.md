@@ -23,4 +23,10 @@
 ##использовать npm вместо yarn
 
 
-firebase deploy --only hosting:profilance
+##Для входа
+
+login admin 
+password admin
+
+login User 
+password 12345
