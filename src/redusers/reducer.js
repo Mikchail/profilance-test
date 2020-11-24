@@ -1,43 +1,16 @@
+import {news} from '../news'
+console.log(news)
 const initialState = {
   isAdmin: false,
   user: false,
   isUserError: false,
   filterBy: ``,
-  news: [
-    {
-      id: '12',
-      title: 'Simple news 1',
-      description: 'This is about muffin',
-      date: 1606125923036,
-      approved: true,
-    },
-    {
-      id: '122',
-      title: 'Hard news 2',
-      description: 'This is about hard',
-      date: 1602225963036,
-      approved: true,
-    },
-    {
-      id: '1332',
-      title: 'New Title 3',
-      description: 'This is about sport',
-      date: 1606425963036,
-      approved: true,
-    },
-    {
-      id: '133222',
-      title: 'New Title 5',
-      description: 'This is about muffin 5',
-      date: 1606485963036,
-      approved: false,
-    },
-  ],
+  news: news
 };
 
 const dataBase = [
   {
-    name: 'Petka',
+    name: 'User',
     password: '12345',
     isAdmin: false,
   },

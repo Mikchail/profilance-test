@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {getDateTimeString} from '../../utils';
+import './item.scss'
+
 const Item = (props) => {
-  const {item,isAdmin,deleteNews,setApproved} = props;
+  const {item, isAdmin, deleteNews, setApproved} = props;
   const exactlyTime = getDateTimeString(item.date);
   return (
     <li className="item">
-      {(!item.approved && isAdmin) && <button onClick={()=>setApproved(item.id)}>Approved</button>}
-      {isAdmin && <button onClick={()=>deleteNews(item.id)}>delete</button>}
+      {(!item.approved && isAdmin) && <button className='item__btn-approved btn' onClick={() => setApproved(item.id)}>Approved</button>}
+      {isAdmin && <button className='item__btn-delete btn' onClick={() => deleteNews(item.id)}>delete</button>}
       <h3 className="item__title">{item.title}</h3>
       <p className="item__description">{item.description}</p>
       <time className="item__date">{exactlyTime}</time>

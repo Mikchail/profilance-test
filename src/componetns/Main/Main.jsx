@@ -3,17 +3,19 @@ import {connect} from 'react-redux';
 import {ActionCreator} from '../../redusers/reducer';
 import FormAddNews from '../Forms/FormAddNews';
 import PropTypes from 'prop-types';
+import './main.scss'
 
 const Main = (props) => {
   const {user, addNews, isAdmin} = props;
 
   return (
-    <main>
-      {!user && <p>Привет, Гость</p>}
+    <main className='container main'>
+      {!user && <p className='main__greet'>Hello, <span>Guest!</span> </p>}
       {user && (
         <React.Fragment>
-          <p>Привет, {user}!</p>
-          <FormAddNews addNews={addNews} isAdmin={isAdmin} />
+          <p className='main__greet'>Hello, <span>{user}!</span></p>
+          <p className='main__greet'>Add News!</p>
+          <FormAddNews addNews={addNews} isAdmin={isAdmin}/>
         </React.Fragment>
       )}
     </main>
@@ -30,7 +32,7 @@ const mapStateToProps = (state) => ({
 });
 
 Main.propTypes = {
-  user: PropTypes.oneOfType([PropTypes.string,PropTypes.bool]),
+  user: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   isAdmin: PropTypes.bool,
   addNews: PropTypes.func,
 }

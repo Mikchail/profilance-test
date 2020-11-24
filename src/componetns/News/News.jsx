@@ -3,29 +3,44 @@ import PropTypes from 'prop-types';
 import Item from '../Item/Item';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../redusers/reducer';
-import {getApprovedNews, getFilterApprovedNews, getNotApprovedNews} from '../../redusers/selectors';
-import FormSort from '../Forms/FormSort';
+import { getFilterApprovedNews, getNotApprovedNews} from '../../redusers/selectors';
+import FormFilter from '../Forms/FormFilter';
+import './news.scss'
 
 const News = (props) => {
-  const {isAdmin, deleteNews, approvedNews, notApprovedNews, setApproved} = props;
+  const {isAdmin, deleteNews,user, approvedNews, notApprovedNews, setApproved} = props;
+  if(!user){
+    return (
+      <div className='container news'>
+        <h3 className='news__title'>You should log in</h3>
+      </div>
+    )
+  }
   return (
-    <div>
-      <h3>Not Approved</h3>
-      <ul className="list">
-        {notApprovedNews &&
-          notApprovedNews.map((item) => {
+    <div className='container news'>
+
+      {notApprovedNews &&
+      <React.Fragment>
+        <h3 className='news__title'>Not Approved</h3>
+        <ul className="list">
+          {notApprovedNews.map((item) => {
             return (
-              <Item key={item.id} item={item} isAdmin={isAdmin} deleteNews={deleteNews} setApproved={setApproved} />
-            );
+              <Item key={item.id} item={item} isAdmin={isAdmin} deleteNews={deleteNews} setApproved={setApproved}/>
+            )
           })}
-      </ul>
-      <h3>Approved</h3>
-      <FormSort />
+        </ul>
+      </React.Fragment>
+      }
+
+      <h3 className='news__title'>Approved</h3>
+
+      <FormFilter/>
+
       <ul className="list">
         {approvedNews &&
-          approvedNews.map((item) => {
-            return <Item key={item.id} item={item} isAdmin={isAdmin} deleteNews={deleteNews} />;
-          })}
+        approvedNews.map((item) => {
+          return <Item key={item.id} item={item} isAdmin={isAdmin} deleteNews={deleteNews}/>;
+        })}
       </ul>
     </div>
   );
@@ -47,6 +62,7 @@ News.propTypes = {
 
 const mapStateToProps = (state) => ({
   isAdmin: state.isAdmin,
+  user: state.user,
   approvedNews: getFilterApprovedNews(state),
   notApprovedNews: getNotApprovedNews(state),
 });

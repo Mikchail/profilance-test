@@ -1,0 +1,39 @@
+
+
+.item{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+  margin: 0 0 30px;
+  @media (min-width: 768px) {
+    margin: 0 20px 30px;
+    width: calc(50% - 40px);
+  }
+  background: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.19);
+  &__btn-delete{
+    margin-bottom: 20px;
+  }
+  &__btn-approved{
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  &__title{
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  &__description{
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  &__date{
+    display: flex;
+    margin-top: auto;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}

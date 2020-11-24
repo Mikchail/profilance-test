@@ -1,0 +1,29 @@
+.form-add{
+  display: flex;
+  flex-direction: column;
+  max-width: 370px;
+  margin: 30px auto;
+  &__label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    input{
+      display: block;
+      margin-top: 7px;
+    }
+    textarea{
+      display: block;
+      margin-top: 7px;
+      resize: none;
+      min-height: 150px;
+    }
+  }
+  &__title{
+
+  }
+  &__description{
+  }
+  .btn{
+    margin: 0 auto;
+  }
+}

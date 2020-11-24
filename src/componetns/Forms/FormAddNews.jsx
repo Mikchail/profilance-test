@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import './formAddNews.scss'
 const FormAddNews = (props) => {
   const {addNews,isAdmin} = props;
   const [title, setTitle] = useState('');
@@ -21,16 +21,16 @@ const FormAddNews = (props) => {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form onSubmit={handleSubmit} className='form-add'>
+      <label className='form-add__title form-add__label'>
         Title:
         <input type="text" value={title} onChange={(evt) => setTitle(evt.target.value)} />
       </label>
-      <label>
+      <label className='form-add__description form-add__label'>
         Description:
-        <input type="text" value={description} onChange={(evt) => setDescription(evt.target.value)} />
+        <textarea type="text" value={description} onChange={(evt) => setDescription(evt.target.value)} />
       </label>
-      <button type="submit">Submit</button>
+      <button type="submit" className='btn'>Submit</button>
     </form>
   );
 };

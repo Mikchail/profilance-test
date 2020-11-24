@@ -1,4 +1,5 @@
 import {getDateTimeString} from '../utils';
+
 export const getApprovedNews = (state) => {
   return state.news.filter((it) => it.approved);
 };

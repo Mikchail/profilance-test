@@ -1,27 +1,24 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../redusers/reducer';
+import './formFilter.scss'
 
-const FormSort = (props) => {
+const FormFilter = (props) => {
   const {filter} = props;
   const [sort, setSort] = useState('');
-  // const handleChange = (evt) => {
-  //   evt.preventDefault();
-  //   console.log({sort});
-  //   filter(sort.trim());
-  // };
-  useEffect(()=>{
+
+  useEffect(() => {
     filter(sort.trim());
-  },[sort])
+  }, [sort])
   return (
-    <label>
-      Sort:
+    <label className='form-filter'>
+      Search:
       <input
         type="text"
         value={sort}
-        
+
         onInput={(evt) => {
-            setSort(evt.target.value);
+          setSort(evt.target.value);
         }}
       />
     </label>
@@ -32,4 +29,4 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setSortString(str));
   },
 });
-export default connect(null, mapDispatchToProps)(FormSort);
+export default connect(null, mapDispatchToProps)(FormFilter);
